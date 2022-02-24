@@ -1,7 +1,6 @@
 import axios from 'axios';
 import fs from 'node:fs';
 import cheerio from 'cheerio';
-
 import https from 'node:https';
 
 // import path from 'node:path';
@@ -40,46 +39,12 @@ axios(url)
       // Add 0 before an image number if necessary
       const path = i === 9 ? `./memes/${i + 1}.jpg` : `./memes/0${i + 1}.jpg`;
       const file = fs.createWriteStream(path);
-      https.get(downloadedImgs[i], function (response) {
-        response.pipe(file);
+      https.get(downloadedImgs[i], (res) => {
+        res.pipe(file);
       });
     }
 
     $.html();
   })
   .catch((err) => console.log(err));
-
-// for (let i = 0; i < 10; i++) {
-//   fs.open(`./memes/0${i + 1}.jpg`, 'w', (err) => {
-//     if (err) {
-//       throw err;
-//     }
-//   });
-//   const image = memes[i];
-//   fetch(image)
-//     .then((res) =>
-//       res.body.pipe(fs.createWriteStream(`.memes/0${i + 1}.jpg`)),
-//     )
-//     .catch((error) => {
-//       console.log(error);
-//     });
-
-//   console.log(image);
-// }
-
-//   const $ = cheerio.load(html);
-//   $('img', html).each(function () {
-//     const url = $(this).find('img').attr('src');
-//     memes.push({
-//       url,
-//     });
-//   });
-//   console.log(memes);
-// })
-// .catch((err) => console.log(err));
-
-//     // const memes = Array.from($('.meme-img'));
-//     function getImages(html) {
-//       const items = $('img');
-//       const list = [];
-//       const result = Array.from($('.meme-img'));
+console.log('it worked');

@@ -40,7 +40,7 @@
     "eslint-plugin-jest": "26.1.1"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "cheerio": "^1.0.0-rc.10",
     "puppeteer": "^13.0.1"
   }
